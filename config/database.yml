@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: localhost
+  username: vojkor
+  password: vojkor
+
+development:
+  <<: *default
+  database: UP_Imenik_development
+
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: UP_Imenik_test

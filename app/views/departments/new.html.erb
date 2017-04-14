@@ -1,0 +1,18 @@
+<h1>Oddelek</h1>
+
+
+<%= form_for :department, url: departments_path do |f| %>
+<div class="select">
+  <%= collection_select(:department, :member_id, Member.all, :id, :name, prompt: "Izberi članico") %>
+</div>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+    <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Nazaj', root_path %>

@@ -1,0 +1,32 @@
+<style>
+table, th, td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+}
+table#m tr:nth-child(even) {
+    background-color: #eee;
+}
+table#m tr:nth-child(odd) {
+   background-color:#fff;
+}
+table#m th {
+    background-color: black;
+    color: white;
+}
+
+</style>
+<table id="m" style="width:50%">
+<tr>
+  <th>Ime in priimek</th>
+  <th>Tel. številka</th>
+<tr>
+  <% @employees.each do |employee| %>
+      <td><h3><%= employee.name %></h3></td>
+      <td><h3><%= employee.number %></h3></td>
+      <td><%= link_to 'Briši', employee_path(employee),
+              method: :delete,
+              data: { confirm: 'Si prepričan?' } %></td>
+    </td>
+    </tr>
+  <% end %>
+</table>

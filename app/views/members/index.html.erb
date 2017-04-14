@@ -1,0 +1,15 @@
+<h1>Članice</h1>
+<style>
+table, th, td {
+    border: 1px solid grey;
+}
+
+</style>
+<table id="m" style="width:10%">
+  <% @members.each do |m| %>
+    <tr>
+      <td><h3><%= m.name %></h3></td>
+    </td>
+    </tr>
+  <% end %>
+</table>

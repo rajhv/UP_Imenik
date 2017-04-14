@@ -1,0 +1,34 @@
+<h1>Telefonski imenik Univerze na primorskem</h1>
+
+
+<%= link_to 'Nova članica', new_member_path %> |
+<%= link_to 'Nov oddelek', new_department_path %> |
+<%= link_to 'Nov zaposlen', new_employee_path %>
+
+<br>
+
+
+<br>
+
+<%# form_tag(root_path, method: "get") do %>
+    <%# select_tag(:dep, options_from_collection_for_select(Department.all,  :id, :name)) %>
+    <%# submit_tag "Išči", name: nil %>
+<%# end %>
+
+
+
+<%= form_tag(root_path, method: "get") do %>
+  <%# select_tag(:members, options_from_collection_for_select(Member.all,  :id, :name)) %>
+  <%# collection_select(:member, :member_id, Member.all, :id, :name, prompt: "Vse članice UP") %>
+  <%# select_tag(:member, options_from_collection_for_select(Member.all, :id, :name), :onchange => 'submit()')  %>
+  <%# collection_select(:employee, :department_id, Department.all, :id, :name, prompt: "Vsi oddelki", onChange: "this.form.submit()") %>
+  <%= select_tag(:mem, options_from_collection_for_select(Member.all,  :id, :name, :selected => params[:mem]), prompt: "Vsi članice", :onchange => "this.form.submit()") %>
+  <%= select_tag(:dep, options_from_collection_for_select(Department.all,  :id, :name, :selected => params[:dep]), prompt: "Vsi oddelki", :onchange => "this.form.submit()") %>
+  <%= label_tag(:emp, "") %>
+  <%= text_field_tag :emp, params[:emp] %>
+  <%= submit_tag "Išči", name: nil %>
+<% end %>
+
+<br>
+<br>
+<%= render "employees/table" %>
