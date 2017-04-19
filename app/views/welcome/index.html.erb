@@ -23,7 +23,7 @@
   <%# select_tag(:member, options_from_collection_for_select(Member.all, :id, :name), :onchange => 'submit()')  %>
   <%# collection_select(:employee, :department_id, Department.all, :id, :name, prompt: "Vsi oddelki", onChange: "this.form.submit()") %>
   <%= select_tag(:mem, options_from_collection_for_select(Member.all,  :id, :name, :selected => params[:mem]), prompt: "Vsi članice", :onchange => "this.form.submit()") %>
-  <%= select_tag(:dep, options_from_collection_for_select(Department.all,  :id, :name, :selected => params[:dep]), prompt: "Vsi oddelki", :onchange => "this.form.submit()") %>
+  <%= select_tag(:dep, options_from_collection_for_select(@departments,  :id, :name, :selected => params[:dep]), prompt: "Vsi oddelki", :onchange => "this.form.submit()") %>
   <%= label_tag(:emp, "") %>
   <%= text_field_tag :emp, params[:emp] %>
   <%= submit_tag "Išči", name: nil %>

@@ -1,7 +1,16 @@
 class WelcomeController < ApplicationController
 
   def index
+    @departments = Department.dep_member(params[:mem])
+    #@employees = Employee.joins(:department).where('employees.department_id =? and departments.member_id = ?',params[:dep].to_i, params[:mem].to_i).order(:name)
     @employees = Employee.emp_name_number(params[:emp]).emp_department(params[:dep]).order(:name)
+    #if params[:mem]='Vse članice'
+    #    @employees = Employee.all
+    #else
+    #  @employees =Employee.first
+      #@employees = Employee.joins(:department).where('employees.department_id =? and departments.member_id = ?',params[:dep], params[:mem]).order(:name)
+    #end
+    #@employees = Employee.emp_name_number(params[:emp]).emp_department(params[:dep]).order(:name)
     #@employees = Employee.emp_name_number(params[:emp]).where(department_id: params[:dep])
     #@employees = Employee.emp_number(params[:emp])
     #@employees = Employee.emp_department(params[:emp])
