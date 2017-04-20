@@ -1,6 +1,10 @@
 class DepartmentsController < ApplicationController
   def index
-    @departments = Department.all
+    if params[:mem]
+      @departments = Department.where(member: params[:mem])
+    else
+      @departments = Department.all
+    end
   end
 
   def new

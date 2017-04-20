@@ -1,7 +1,9 @@
 class Employee < ApplicationRecord
-  scope :emp_name_number, -> (emp) {where("name ILIKE ? or number ILIKE ?", "%#{emp}%", "%#{emp}%")if emp.present?}
-  scope :emp_department, -> (department_id) {where("department_id = ?", department_id) if department_id.present?}
+  # if query string is not present all employees are returned
+  scope :find_by_name_or_number, -> (query_string) { query_string.present? ? where("name ILIKE ? or number ILIKE ?", "%#{query_string}%", "%#{query_string}%") : all }
+  # if departments is not present all employees are returned
+  scope :find_by_departments, -> (departments) { departments.present? ? where(department: departments) : all }
 
   belongs_to :department
-
+  has_one :member, through: :department
 end
