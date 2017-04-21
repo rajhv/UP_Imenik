@@ -12,6 +12,8 @@ var initialize = function(){
     var departmentsSelect = $("#dep"); // department select box
     clearSelectBox(departmentsSelect); // clear the department select box except the placeholder
 
+    var employeesSearch = $("emp");
+    clearSelectBox(employeesSearch);
     // a member is selected
     if (selectedMemberId){
       console.log("loading departments for member " + selectedMemberLabel);
@@ -45,7 +47,15 @@ var initialize = function(){
       }); // end ajax function
     } else {
       // an empty option was selected('Vsi oddelki')
-      console.log("no member selected. should we do anyhting at this point?");
+      console.log("no member selected. Show all employees");
+      // load all employees
+      triggerSearch(undefined, undefined, undefined);
+      // clear the department select box except the placeholder
+      clearSelectBox(departmentsSelect);
+      //disable departments select box
+      departmentsSelect.attr('disabled', true);
+      //clear query for employees
+      $('#query').val("");
     }
   });
 
