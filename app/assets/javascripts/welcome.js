@@ -8,12 +8,9 @@ var initialize = function(){
     var selectedMemberId = selectedMemberOption.val(); // get value
     var selectedMemberLabel = selectedMemberOption.text(); // get displayed text
 
-
     var departmentsSelect = $("#dep"); // department select box
     clearSelectBox(departmentsSelect); // clear the department select box except the placeholder
 
-    var employeesSearch = $("emp");
-    clearSelectBox(employeesSearch);
     // a member is selected
     if (selectedMemberId){
       console.log("loading departments for member " + selectedMemberLabel);
@@ -46,7 +43,7 @@ var initialize = function(){
         triggerSearch(selectedMemberId, undefined, undefined);
       }); // end ajax function
     } else {
-      // an empty option was selected('Vsi oddelki')
+      // an empty option was selected('Vse članice')
       console.log("no member selected. Show all employees");
       // load all employees
       triggerSearch(undefined, undefined, undefined);
@@ -64,8 +61,20 @@ var initialize = function(){
   $("#dep").change(function () {
     var selectedDepartmentOption = $(this).find(":selected");
     var selectedDepartmentId = selectedDepartmentOption.val(); // get value
+    var selectedDepartmentLabel = selectedDepartmentOption.text();
 
-    triggerSearch(undefined, selectedDepartmentId, undefined);
+    var selectedMemberOption = $("#mem").find(":selected");
+    var selectedMemberId = selectedMemberOption.val();
+    var selectedMemberLabel = selectedMemberOption.text();
+
+    console.log("member: " + selectedMemberId + "  department:" + selectedDepartmentId);
+    if (selectedDepartmentId){
+      triggerSearch(selectedMemberId, selectedDepartmentId, undefined);
+    }
+    else{
+      triggerSearch(selectedMemberId, undefined, undefined);
+    }
+
   }); // end #dep change
 }
 
@@ -85,7 +94,7 @@ function triggerSearch(memberId, departmentId, searchString){
   var queryParams = { "mem": memberId, "dep": departmentId, "query": searchString };
 
   // jquery ajax get shorthand
-  // https://api.jquery.com/jquery.get/
+    // https://api.jquery.com/jquery.get/
   // dataType 'script' loads view with .js.erb
   $.get(
     searchUrl,
