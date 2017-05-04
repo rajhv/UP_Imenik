@@ -104,6 +104,6 @@ function triggerSearch(memberId, departmentId, searchString){
 }
 
 //initialize the script on page:load which occurs after rails turbolinks link_to
-$(document).ready(initialize);
+//$(document).ready(initialize);
 //initialize the script on page:load which occurs after rails turbolinks link_to
-$(document).on('page:load', initialize);
+$(document).on('turbolinks:load', initialize);

@@ -23,7 +23,10 @@ class EmployeesController < ApplicationController
   def destroy
     @employee = Employee.find(params[:id])
     @employee.destroy
-    redirect_to employees_path
+    respond_to do |format|
+      format.html {redirect_to root_path}
+      format.js
+    end
   end
 
   private
