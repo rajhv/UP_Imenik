@@ -1,25 +1,7 @@
-<h1>Zaposlen</h1>
 
 
-<%= form_for :employee ,  url: employees_path do |f| %>
-<div class="select">
-  <%= collection_select(:department, :member_id, Member.all, :id, :name, prompt: "Izberi članico") %>
-  <%= collection_select(:employee, :department_id, Department.where(member_id: [1]), :id, :name, prompt: "Izberi oddelek") %>
-</div>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
+<h1>New Employee</h1>
 
-  <p>
-    <%= f.label :"telefonska številka" %><br>
-    <%= f.text_field :number %>
-  </p>
+<%= render 'form', employee: @employee %>
 
-
-    <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-
-<%= link_to 'Nazaj', root_path %>
+<%= link_to 'Back', root_path %>

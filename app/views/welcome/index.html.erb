@@ -6,15 +6,7 @@
 <%= link_to 'Nov zaposlen', new_employee_path %>
 
 <br>
-
-
 <br>
-
-<%# form_tag(root_path, method: "get") do %>
-    <%# select_tag(:dep, options_from_collection_for_select(Department.all,  :id, :name)) %>
-    <%# submit_tag "Išči", name: nil %>
-<%# end %>
-
 
 
 <%= form_tag(search_path, method: :get, remote: true) do %>

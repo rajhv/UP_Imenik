@@ -14,7 +14,7 @@ class DepartmentsController < ApplicationController
   def create
     @department = Department.new(department_params)
       if @department.save
-        redirect_to departments_path
+        redirect_to root_path
       else
         render 'error'
         #render plain: params[:department].inspect

@@ -13,8 +13,12 @@ class EmployeesController < ApplicationController
 
   def create
     @employee = Employee.new(employee_params)
+    @employee.department_id = params[:dep]
     if @employee.save
-      redirect_to root_path
+      respond_to do |format|
+        format.html {redirect_to root_path}
+        format.js
+      end
     else
       render 'error'
     end
@@ -31,7 +35,7 @@ class EmployeesController < ApplicationController
 
   private
     def employee_params
-      params.require(:employee).permit(:name, :number, :department_id, :member_id)
+      params.require(:employee).permit(:name, :number, :email, :department_id, :member_id)
     end
 
 

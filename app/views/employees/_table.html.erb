@@ -2,10 +2,12 @@
 <tr>
   <th>Ime in priimek</th>
   <th>Tel. številka</th>
+  <th>Elektronska pošta</th>
   <% @employees.each do |employee| %>
     <tr id="row<%= employee.id %>">
       <td><h3><%= employee.name %></h3></td>
       <td><h3><%= employee.number %></h3></td>
+      <td><h3><%= employee.email %></h3></td>
       <td><%= link_to 'Briši',employee,
               method: :delete,
               class: "delete_employee",

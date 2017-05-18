@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  
+
   def index
     @members = Member.all
   end
@@ -11,7 +11,7 @@ class MembersController < ApplicationController
   def create
     @member = Member.new(member_params)
     @member.save
-    redirect_to members_path
+    redirect_to root_path
   end
 
   private

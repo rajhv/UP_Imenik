@@ -1,0 +1,40 @@
+<%= form_for(employee) do |f| %>
+  <% if employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+      <% employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <%= form_tag(search_path, method: :get, remote: true) do %>
+
+    <%= select_tag(:mem, options_from_collection_for_select(Member.all,  :id, :name, :selected => params[:mem]), prompt: "Vse članice") %>
+    <%= select_tag(:dep, options_from_collection_for_select([],  :id, :name, :selected => params[:dep]), prompt: "Vsi oddelki", disabled: true) %>
+
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="field">
+        <%= f.label :number %>
+        <%= f.text_field :number %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </div>
+
+
+  <div class="actions">
+    <%= submit_tag "Create" %>
+  </div>
+  <% end %>
+<% end %>
