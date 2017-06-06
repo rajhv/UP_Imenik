@@ -42,6 +42,8 @@ var initialize = function(){
         // load employees for selected member
         triggerSearch(selectedMemberId, undefined, undefined);
       }); // end ajax function
+      //clear query for employees
+      $('#query').val("");
     } else {
       // an empty option was selected('Vse članice')
       console.log("no member selected. Show all employees");
@@ -74,7 +76,8 @@ var initialize = function(){
     else{
       triggerSearch(selectedMemberId, undefined, undefined);
     }
-
+    //clear query for employees
+    $('#query').val("");
   }); // end #dep change
 }
 

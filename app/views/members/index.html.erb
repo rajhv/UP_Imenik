@@ -1,15 +1,26 @@
 <h1>Članice</h1>
+
+<%= link_to 'Nova članica', new_member_path %> |
+<%= link_to 'Nazaj', root_path %>
+<br>
+<br>
+
 <style>
 table, th, td {
     border: 1px solid grey;
 }
 
 </style>
-<table id="m" style="width:10%">
-  <% @members.each do |m| %>
+<table id="table_members">
+  <% @members.order(:name).each do |member| %>
     <tr>
-      <td><h3><%= m.name %></h3></td>
-    </td>
+      <td><h3><%= member.name %></h3></td>
+      <td><%= link_to image_tag('edit-employee.png',size: "25x25"), edit_member_path(member) %> </td>
+      <td><%= link_to image_tag('remove-employee.png',size: "25x25"),
+              member,
+              method: :delete,
+              class: "delete_member",
+              data: { confirm: 'Si prepričan?', remote: true } %></td>
     </tr>
   <% end %>
 </table>

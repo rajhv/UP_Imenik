@@ -1,14 +1,5 @@
 <h1>Članica</h1>
 
-<%= form_for :member, url: members_path  do |f| %>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
-
-    <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-
+<%= render 'form', member: @member %>
+<br>
 <%= link_to 'Nazaj', root_path %>

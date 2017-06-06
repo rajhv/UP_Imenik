@@ -3,16 +3,18 @@
   <th>Ime in priimek</th>
   <th>Tel. številka</th>
   <th>Elektronska pošta</th>
-  <% @employees.each do |employee| %>
+  <% @employees.order(:name).each do |employee| %>
     <tr id="row<%= employee.id %>">
       <td><h3><%= employee.name %></h3></td>
       <td><h3><%= employee.number %></h3></td>
       <td><h3><%= employee.email %></h3></td>
-      <td><%= link_to 'Briši',employee,
-              method: :delete,
-              class: "delete_employee",
-              data: { confirm: 'Si prepričan?', remote: true } %></td>
-    </td>
+      <td><%= link_to image_tag('edit-employee.png',size: "25x25"), edit_employee_path(employee) %> </td>
+      <td><%= link_to image_tag('remove-employee.png',size: "25x25"),
+          employee,
+          method: :delete,
+          class: "delete_employee",
+          data: { confirm: 'Si prepričan?', remote: true } %></td>
+      </td>
     </tr>
   <% end %>
 </table>

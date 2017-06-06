@@ -1,18 +1,26 @@
 <h1>Oddelek</h1>
 
+<%= link_to 'Nov oddelek', new_department_path %> |
+<%= link_to 'Nazaj', root_path %>
+<br>
+<br>
+
 <style>
 table, th, td {
     border: 1px solid grey;
 }
 
 </style>
-<table id="m" style="width:50%">
-  <% @departments.each do |d| %>
+<table id="table_departments">
+  <% @departments.order(:name).each do |department| %>
     <tr>
-      <td><h3><%= d.name %></h3></td>
-      <td><%= link_to 'Briši', department_path(d),
-              method: :delete,
-              data: { confirm: 'Si prepričan?' } %></td>
+      <td><h3><%= department.name %></h3></td>
+      <td><%= link_to image_tag('edit-employee.png',size: "25x25"), edit_department_path(department) %> </td>
+      <td><%= link_to image_tag('remove-employee.png',size: "25x25"),
+          department,
+          method: :delete,
+          class: "delete_department",
+          data: { confirm: 'Si prepričan?', remote: true } %></td>
     </td>
     </tr>
   <% end %>

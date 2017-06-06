@@ -16,8 +16,8 @@ class WelcomeController < ApplicationController
       @departments = Department.all
     end
 
-    @query = params[:query]
-
+      @query = params[:query]
+    
     @employees = Employee.find_by_name_or_number_or_email(@query).find_by_departments(@departments)
   end
 end

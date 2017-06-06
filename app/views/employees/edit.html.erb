@@ -1,0 +1,28 @@
+<h1>Urejanje zaposlenega</h1>
+
+<%= form_for(@employee) do |f| %>
+  <%= select_tag(:mem, options_from_collection_for_select(Member.all,  :id, :name, @employee.department.member_id)) %>
+  <%= select_tag(:dep, options_from_collection_for_select(Department.where("member_id = ?", @employee.department.member_id),  :id, :name, @employee.department_id)) %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :number %>
+    <%= f.text_field :number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "Potrdi" %>
+  </div>
+
+
+<% end %>
+<%= link_to 'Back', root_path %>
