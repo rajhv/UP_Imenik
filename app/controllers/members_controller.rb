@@ -14,8 +14,16 @@ class MembersController < ApplicationController
 
   def create
     @member = Member.new(member_params)
-    @member.save
-    redirect_to members_path
+    respond_to do |format|
+      if @member.save
+        format.html { redirect_to @member, notice: 'Članica je bila dodana.' }
+        format.json { render :show, status: :created, location: @member }
+      else
+        format.html { render :new }
+        format.json { render json: @member.errors, status: :unprocessable_entity }
+      end
+    end
+
   end
 
   def update
