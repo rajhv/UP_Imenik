@@ -8,3 +8,17 @@
 
 <br>
 <br>
+
+
+<%= form_tag(search_path, method: :get, remote: true) do %>
+  <%= select_tag(:mem, options_from_collection_for_select(Member.all,  :id, :name, :selected => params[:mem]), prompt: "Vse članice") %>
+  <%= select_tag(:dep, options_from_collection_for_select([],  :id, :name, :selected => params[:dep]), prompt: "Vsi oddelki", disabled: true) %>
+  <%= text_field_tag :query, '', autofocus: true%>
+  <%= submit_tag "Išči", name: nil%>
+<% end %>
+
+<br>
+<br>
+<div id="employee-table-container">
+  <%= render "employees/table", locals: { employees: @employees } %>
+</div>
