@@ -33,7 +33,7 @@ class MembersController < ApplicationController
         format.html { redirect_to members_path, notice: 'Članica je spremenjena!' }
         format.json { render :show, status: :ok, location: @member }
       else
-        format.html { render :edit }
+        format.html { render :error }
         format.json { render json: @member.errors, status: :unprocessable_entity }
       end
     end

@@ -34,10 +34,10 @@ class DepartmentsController < ApplicationController
     @department.member_id = params[:mem]
     respond_to do |format|
       if @department.update(department_params)
-        format.html { redirect_to root_path, notice: 'Oddelek je spremenjen!' }
+        format.html { redirect_to departments_path, notice: 'Oddelek je spremenjen!' }
         format.json { render :show, status: :ok, location: @department }
       else
-        format.html { render :edit }
+        format.html { render :error }
         format.json { render json: @department.errors, status: :unprocessable_entity }
       end
     end

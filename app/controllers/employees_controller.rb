@@ -36,7 +36,7 @@ class EmployeesController < ApplicationController
         format.html { redirect_to root_path, notice: 'Zaposleni je spremenjen!' }
         format.json { render :show, status: :ok, location: @employee }
       else
-        format.html { render :edit }
+        format.html { render :error }
         format.json { render json: @employee.errors, status: :unprocessable_entity }
       end
     end
@@ -53,7 +53,7 @@ class EmployeesController < ApplicationController
 
   private
     def employee_params
-      params.require(:employee).permit(:name, :number, :email, :department_id, :member_id)
+      params.require(:employee).permit(:name, :number, :mobile_number, :email, :department_id, :member_id)
     end
 
 

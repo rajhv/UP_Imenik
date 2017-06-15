@@ -15,6 +15,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :mobile_number %>
+    <%= f.text_field :mobile_number %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
@@ -22,7 +27,6 @@
   <div class="actions">
     <%= submit_tag "Potrdi" %>
   </div>
-
 
 <% end %>
 <%= link_to 'Back', root_path %>
