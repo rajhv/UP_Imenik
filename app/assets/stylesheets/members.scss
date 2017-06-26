@@ -1,15 +1,7 @@
-table, th, td {
-    border: 1px solid grey;
-    border-collapse: collapse;
-    width:10%;
+
+select#mem {
+  width:auto;
 }
-table#table_members tr:nth-child(even) {
-    background-color: #eee;
-}
-table#table_members tr:nth-child(odd) {
-   background-color:#fff;
-}
-table#table_members th {
-    background-color: black;
-    color: white;
+select#dep {
+  width:auto;
 }

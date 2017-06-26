@@ -1,32 +1,48 @@
 <h1>Urejanje zaposlenega</h1>
 
-<%= form_for(@employee) do |f| %>
-  <%= select_tag(:mem, options_from_collection_for_select(Member.all,  :id, :name, @employee.department.member_id)) %>
-  <%= select_tag(:dep, options_from_collection_for_select(Department.where("member_id = ?", @employee.department.member_id),  :id, :name, @employee.department_id)) %>
+      <%= form_for(@employee) do |f| %>
+      <div class="container-fluid">
+      <form class="form-horizontal">
+        <div class="form-group">
+          <%= f.label "Članica",:class => "control-label" %>
+          <%= select_tag(:mem, options_from_collection_for_select(Member.all,  :id, :name, @employee.department.member_id), :class => "form-control") %>
+          <br>
+          <%= f.label "Oddelek",:class => "control-label" %>
+          <%= select_tag(:dep, options_from_collection_for_select(Department.where("member_id = ?", @employee.department.member_id),  :id, :name, @employee.department_id), :class => "form-control") %>
+        </div>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+        <div class="form-group">
+          <%= f.label "Ime in priimek", :class => "control-label" %>
+          <%= f.text_field :name, :class => "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label "Telefonska številka", :class => "control-label" %>
+          <%= f.text_field :number, :class => "form-control" %>
+        </div>
+
+
+        <div class="form-group">
+          <%= f.label "Mobilna telefonska številka", :class => "control-label" %>
+          <%= f.text_field :mobile_number, :class => "form-control" %>
+        </div>
+
+
+        <div class="form-group">
+          <%= f.label "Elektronska pošta", :class => "control-label" %>
+          <%= f.text_field :email, :class => "form-control" %>
+        </div>
+
+
+
+<br>
+
+        <div class="form-group">
+          <div class="actions">
+            <%= submit_tag "Potrdi", :class => "form-control" %>
+          </div>
+        </div>
+      </div>
+  <% end %>
+  </form>
   </div>
-
-  <div class="field">
-    <%= f.label :number %>
-    <%= f.text_field :number %>
-  </div>
-
-  <div class="field">
-    <%= f.label :mobile_number %>
-    <%= f.text_field :mobile_number %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-
-  <div class="actions">
-    <%= submit_tag "Potrdi" %>
-  </div>
-
-<% end %>
-<%= link_to 'Back', root_path %>

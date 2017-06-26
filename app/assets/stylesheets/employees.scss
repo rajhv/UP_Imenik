@@ -1,15 +1,49 @@
-table, th, td {
+/*
+table#table_employees, th,td {
     border: 1px solid grey;
     border-collapse: collapse;
-    width:50%;
+    width: auto !important;
 }
-table#table_employees tr:nth-child(even) {
+
+table#table_employees tr:nth-child(1) {
+  width:10%;
     background-color: #eee;
 }
+
 table#table_employees tr:nth-child(odd) {
    background-color:#fff;
 }
+
+*/
 table#table_employees th {
-    background-color: black;
-    color: white;
+    background-color: rgb(238,238,238);
+    color: black;
+
+}
+table#table_employees th:nth-child(-n+2) {
+  background-color: white;
+  border: 0;
+  width: 40px;
+}
+
+input#employee_name {
+  width: auto;
+  }
+
+
+input#employee_number {
+  width: auto;
+}
+
+
+input#employee_mobile_number {
+  width: auto;
+}
+
+
+input#employee_email {
+  width: auto;
+}
+input[type=submit] {
+  width: auto;
 }

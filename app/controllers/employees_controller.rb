@@ -18,13 +18,14 @@ class EmployeesController < ApplicationController
   def create
     @employee = Employee.new(employee_params)
     @employee.department_id = params[:dep]
-    if @employee.save
-      respond_to do |format|
+    respond_to do |format|
+      if @employee.save
         format.html {redirect_to root_path}
         format.js
+      else
+        format.html {render "new"}
+        format.js
       end
-    else
-      render 'error'
     end
   end
 
@@ -36,7 +37,7 @@ class EmployeesController < ApplicationController
         format.html { redirect_to root_path, notice: 'Zaposleni je spremenjen!' }
         format.json { render :show, status: :ok, location: @employee }
       else
-        format.html { render :error }
+        format.html { render "edit" }
         format.json { render json: @employee.errors, status: :unprocessable_entity }
       end
     end

@@ -1,12 +1,6 @@
 <h1>Zaposleni</h1>
 
-<style>
-table, th, td {
-    border: 1px solid grey;
-}
-
-</style>
-<table id="table_employees" style="width:2%">
+<table id="table_employees">
   <% @employees.each do |e| %>
     <tr>
       <td><h3><%= e.name %></h3></td>

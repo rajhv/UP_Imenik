@@ -18,15 +18,15 @@ class DepartmentsController < ApplicationController
   def create
     @department = Department.new(department_params)
     @department.member_id = params[:mem]
-    if @department.save
-      respond_to do |format|
+    respond_to do |format|
+      if @department.save
         format.html {redirect_to departments_path}
         format.js
-      end
       else
-        render 'error'
-        #render plain: params[:department].inspect
+        format.html {render "new"}
+        format.js
       end
+    end  
   end
 
   def update
