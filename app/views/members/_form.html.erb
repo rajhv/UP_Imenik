@@ -10,12 +10,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+  <form class="form-horizontal">
+    <div class="form-group">
+      <div class="field">
+        <%= f.label "Članica",:class => "control-label" %>
+        <%= f.text_field :name, :class => "form-control" %>
+      </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+      <br>
+
+      <div class="actions">
+        <%= submit_tag "Potrdi", :class => "form-control" %>
+      </div>
+    </div>
+  </form>
 <% end %>

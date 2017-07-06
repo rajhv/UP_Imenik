@@ -1,17 +1,3 @@
 <h1>Urejanje oddelka</h1>
 
-<%= form_for(@department) do |f| %>
-  <%= select_tag(:mem, options_from_collection_for_select(Member.all,  :id, :name, @department.member_id)) %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="actions">
-    <%= submit_tag "Potrdi" %>
-  </div>
-
-<% end %>
-
-<%= link_to 'Back', departments_path %>
+<%= render 'form', department: @department %>

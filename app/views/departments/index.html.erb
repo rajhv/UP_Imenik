@@ -5,23 +5,20 @@
 <br>
 <br>
 
-<style>
-table, th, td {
-    border: 1px solid grey;
-}
-
-</style>
-<table id="table_departments">
+<table id="table_departments" class="table table-condensed table-hover">
   <% @departments.order(:name).each do |department| %>
     <tr>
-      <td><h3><%= department.name %></h3></td>
-      <td><%= link_to image_tag('edit-employee.png',size: "25x25"), edit_department_path(department) %> </td>
-      <td><%= link_to image_tag('remove-employee.png',size: "25x25"),
-          department,
-          method: :delete,
-          class: "delete_department",
-          data: { confirm: 'Si prepričan?', remote: true } %></td>
-    </td>
+      <td><%= link_to edit_department_path(department), class: "btn btn-default" do %>
+            <span class="glyphicon glyphicon-edit"></span>
+          <% end %> </td>
+      <td><%= link_to department,
+              method: :delete,
+              class: "delete_department",
+              data: { confirm: 'Si prepričan?', remote: true } do %>
+                <span class="btn btn-default glyphicon glyphicon-remove"></span>
+          <% end %>
+      </td>
+      <td><%= department.name %></td>
     </tr>
   <% end %>
 </table>

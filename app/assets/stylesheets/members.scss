@@ -1,3 +1,22 @@
+table#table_members th {
+    background-color: rgb(238,238,238);
+    color: black;
+    width: 40px;
+}
+
+table#table_members td:nth-child(-n+2) {
+  width: 50px;
+}
+
+table#table_members td {
+    font-size: 20px;
+}
+
+
+input#member_name {
+  width: auto;
+  }
+
 
 select#mem {
   width:auto;

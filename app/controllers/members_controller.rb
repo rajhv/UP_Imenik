@@ -16,11 +16,11 @@ class MembersController < ApplicationController
     @member = Member.new(member_params)
     respond_to do |format|
       if @member.save
-        format.html { redirect_to @member, notice: 'Članica je bila dodana.' }
-        format.json { render :show, status: :created, location: @member }
+        format.html {redirect_to members_path}
+        format.json
       else
-        format.html { render :new }
-        format.json { render json: @member.errors, status: :unprocessable_entity }
+        format.html { render "new" }
+        format.json
       end
     end
 

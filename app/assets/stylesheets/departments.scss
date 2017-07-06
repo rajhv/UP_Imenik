@@ -1,0 +1,17 @@
+table#table_departments th {
+    background-color: rgb(238,238,238);
+    color: black;
+    width: 40px;
+  }
+
+  table#table_departments td:nth-child(-n+2) {
+    width: 60px;
+  }
+
+  table#table_departments td {
+    font-size: 20px;
+  }
+
+input#department_name {
+  width: auto;
+  }

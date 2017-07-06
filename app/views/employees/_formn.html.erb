@@ -14,10 +14,10 @@
   <form class="form-horizontal">
     <div class="form-group">
       <%= f.label "Članica",:class => "control-label" %>
-      <%= select_tag(:mem, options_from_collection_for_select(Member.all,  :id, :name, employee.department.member_id), :class => "form-control") %>
+      <%= select_tag(:mem, options_from_collection_for_select(Member.all,  :id, :name, :selected => params[:mem]),prompt: "Vse članice", :class => "form-control") %>
       <br>
       <%= f.label "Oddelek",:class => "control-label" %>
-      <%= select_tag(:dep, options_from_collection_for_select(Department.where("member_id = ?", employee.department.member_id),  :id, :name, employee.department_id), :class => "form-control") %>
+      <%= select_tag(:dep, options_from_collection_for_select([], :id, :name, :selected => params[:dep]), prompt: "Vsi oddelki", disabled: true, :class => "form-control") %>
     </div>
 
     <div class="form-group">
