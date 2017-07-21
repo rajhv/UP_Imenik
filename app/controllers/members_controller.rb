@@ -8,6 +8,10 @@ class MembersController < ApplicationController
     @member = Member.new
   end
 
+  def show
+    @members = Member.all
+  end
+
   def edit
     @member = Member.find(params[:id])
   end
@@ -16,7 +20,7 @@ class MembersController < ApplicationController
     @member = Member.new(member_params)
     respond_to do |format|
       if @member.save
-        format.html {redirect_to members_path}
+        format.html {redirect_to root_path}
         format.json
       else
         format.html { render "new" }

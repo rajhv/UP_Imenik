@@ -7,6 +7,9 @@ class DepartmentsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def new
     @department = Department.new
   end
@@ -20,13 +23,13 @@ class DepartmentsController < ApplicationController
     @department.member_id = params[:mem]
     respond_to do |format|
       if @department.save
-        format.html {redirect_to departments_path}
+        format.html {redirect_to root_path}
         format.js
       else
         format.html {render "new"}
         format.js
       end
-    end  
+    end
   end
 
   def update
@@ -47,7 +50,7 @@ class DepartmentsController < ApplicationController
     @department = Department.find(params[:id])
     @department.destroy
     respond_to do |format|
-      format.html {redirect_to members_path}
+      format.html {redirect_to departments_path}
       format.js
     end
   end
