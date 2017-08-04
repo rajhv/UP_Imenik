@@ -23,3 +23,6 @@
 # RVM
 .ruby-gemset
 .ruby-version
+
+# Ignoriraj environment nastavitve
+/config/initializers/app_env_vars.rb
