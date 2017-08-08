@@ -59,6 +59,16 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'https://interni-telefonski-imenik-up.herokuapp.com/' }
 
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+  :address              =>  'smtp.sendgrid.net',
+  :port                 =>  '587',
+  :authentication       =>  :plain,
+  :user_name            =>  'app70497242@heroku.com',
+  :password             =>  '3duserup3899',
+  :domain               =>  'heroku.com',
+  :enable_starttls_auto  =>  true
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = false

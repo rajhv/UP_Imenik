@@ -32,14 +32,17 @@
           <li class="dropdown">
             <a class="nav-user-info-toggle dropdown-toggle" data-toggle="dropdown" href="/" aria-expanded="false">
               Uporabnik
+                <b class="glyphicon glyphicon-menu-hamburger"></b>
             <ul class="dropdown-menu" aria-labelledby="dropdownmenu_user">
-              <li><% if user_signed_in? %>
-                <%= link_to current_user.email, edit_user_registration_path, :class => 'navbar-link' %>
-                <%= link_to "Odjava", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-              <% else %>
-                <%= link_to 'Prijava', new_user_session_path, :class => 'navbar-link' %>
-                <%= link_to "Registracija", new_user_registration_path, :class => 'navbar-link' %>
-              <% end %></li>
+              <li>
+                <% if user_signed_in? %>
+                  <%= link_to current_user.email, edit_user_registration_path, :class => 'navbar-link' %>
+                  <%= link_to "Odjava", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+                <% else %>
+                  <%= link_to 'Prijava', new_user_session_path, :class => 'navbar-link' %>
+                  <%= link_to "Registracija", new_user_registration_path, :class => 'navbar-link' %>
+                <% end %>
+              </li>
               <!-- <li role="separator" class="divider"></li>
               <li><a href="#">O programu</a></li> -->
             </ul>
