@@ -67,7 +67,7 @@ Rails.application.configure do
   :user_name            =>  'app70497242@heroku.com',
   :password             =>  '3duserup3899',
   :domain               =>  'heroku.com',
-  :enable_starttls_auto  =>  true
+  :enable_starttls_auto  =>  true}
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
